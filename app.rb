@@ -6,8 +6,8 @@ Bundler.require
 require_relative 'lib/game'
 require_relative 'lib/player'
 
-player1 = Player.new("José")
-player2 = Player.new("Josette")
+player1 = Player.new("Terminator")
+player2 = Player.new("Dark Vador")
 
 
 def alive?(player1,player2)
@@ -18,7 +18,15 @@ def alive?(player1,player2)
 end
 
 def fight(player1,player2)
+
+	puts <<-'EOF'
 	
+	( •_•)                            (•_• ) 
+	( ง )ง                            ୧(୧ )
+	/︶\                               /︶\ 
+	
+	EOF
+
 	while player1.life_points > 0 && player2.life_points > 0
 	  
 	  alive?(player1,player2)

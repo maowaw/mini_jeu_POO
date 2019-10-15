@@ -14,11 +14,12 @@ puts <<-'EOF'
     @___, \ /                  @__\  /\              @___/      \@/
    /\__,   |                  /\_, \/ /             /\__/        |
   / \    / @\                / \   (               / \ /        / \
-_/__|___/___/_______________/__|____\_____________/__/__________|__\__
-															ARE YOU READY TO FIGHT??'
-
+_/__|___/___/_______________/__|____\_____________/__/__________|__\__'
+														
 
 EOF
+
+puts "ARE YOU READY TO FIGHT?\n"
 
 #Players init
 puts "Salutions jeune guerrier, quel est ton nom?"
@@ -34,6 +35,7 @@ enemy2 = Player.new("Dark Vador")
 
 @@enemies << enemy1
 @@enemies << enemy2
+
 
 def alive?(player1)
 	puts "\nVoici ton état : "
@@ -105,5 +107,7 @@ def fight(player1,enemy1,enemy2,enemies)
 
 end
 
+
+#launch the game
 fight(player1,enemy1,enemy2,@@enemies)
 

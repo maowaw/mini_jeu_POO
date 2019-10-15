@@ -39,8 +39,7 @@ class Player
 		damage_attack = compute_damage #stock the random number in a var called damage_attack
 		player_2.gets_damage(damage_attack) #applies the function gets_damage		
 
-		if player_2.life_points <= 0
-			puts "Aïe, #{player_2.name} est mort..."
+		if player_2.life_points <= 0 #important for exo app_2.rb so that it doesn't display negative life points
 			player_2.life_points = 0
 		
 		else
@@ -52,6 +51,8 @@ class Player
 
 end
 
+
+#Exo app_2.rb
 
 class HumanPlayer < Player
 	
@@ -69,17 +70,17 @@ class HumanPlayer < Player
 		puts "Bonsoiiir ! Tu t'appelles #{@name}, tu as #{@life_points} points de vie et une arme sacrément puissante de #{weapon_level}"
 	end
 
-	def compute_damage
+	def compute_damage #new compute_damage taking in account the weapon level
     return rand(1..6) * @weapon_level
   end
   
-  def search_weapon
+  def search_weapon #allows the player to get a better weapon
   	new_weapon = rand(1..6)
   	puts "Waw, tu as trouvé une arme de niveau #{new_weapon}" 
 
-  	if new_weapon > @weapon_level
+  	if new_weapon > @weapon_level #changes the weapon only if it's better
   		puts "Youhou, cette arme est meilleure que la tienne ! Tu la prends."
-  		@weapon_level = new_weapon
+  		@weapon_level = new_weapon 
   	
   	else 
     	puts "M@*#$... elle n'est pas mieux que ton arme actuelle..."
@@ -87,25 +88,28 @@ class HumanPlayer < Player
     end
 	end
 
-	def search_health_pack
+	def search_health_pack #allows the player to increase his life points
 		health_pack = rand(1..6)
 
 		if health_pack == 1
-			puts "Tu n'as rien trouvé.."
+			puts "Tu n'as rien trouvé.. Ta vie reste à #{@life_points}"
 
 		elsif health_pack >= 2 && health_pack <= 5
 			puts "Bravo, tu as trouvé 50 petits coeurs"
-			@life_points == @life_points + 50
+			@life_points = @life_points + 50
+			
 			if @life_points > 100
 				@life_points = 100
 			end
+		puts "Ta vie est maintenant à #{@life_points}"
 
 		else 
 			puts "La classe, tu as trouvé 80 petits coeurs !!"
-			@life_points == @life_points + 80
+			@life_points = @life_points + 80
 			if @life_points > 100
 				@life_points = 100
 			end
+		puts "Ta vie est maintenant à #{@life_points}"
 		end
  end
 
